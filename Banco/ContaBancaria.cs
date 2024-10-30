@@ -2,16 +2,16 @@
 
 namespace Banco
 {
-    internal class ContaBancaria
+    public class ContaBancaria
     {
         private readonly string m_nomeCliente; //
 
         private double m_saldo; //
 
-        private ContaBancaria() //Método Construtor.
+        public ContaBancaria() //Método Construtor.
 
         { }
-        private ContaBancaria(string nomeCliente, double saldo) //Método Construtor.
+        public ContaBancaria(string nomeCliente, double saldo) //Método Construtor.
         {
             m_nomeCliente = nomeCliente; //Atribui o valor ao parametro.
             m_saldo = saldo; //Atribui o valor ao parametro.
@@ -33,7 +33,8 @@ namespace Banco
                 //Throw é um desvio.
             }
             //função da classe.
-            m_saldo += montante; //Errado intencionalmente.
+            //m_saldo += montante; //Errado intencionalmente.
+            m_saldo -= montante; //Função corrigida.
         }
 
         public void Creditar (double montante) //Método vazio para creditar.
