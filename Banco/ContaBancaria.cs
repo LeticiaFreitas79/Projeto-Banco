@@ -49,7 +49,7 @@ namespace Banco
         //
         static void Main(string[] args)
         {
-            ContaBancaria conta = new("James MaCgregor", 11.99);
+            ContaBancaria conta = new("James MacGregor", 11.99);
             conta.Creditar(5.77);
             conta.Debitar(11.22);
             Console.WriteLine($"Osaldo atual é R$ {conta.Saldo}"); 

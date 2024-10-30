@@ -34,12 +34,27 @@ namespace BancoTestes
         {
             double saldoInicial = 11.99; //Propriedade + Atribuição de valor.
             double montanteDebitado = -100.00; //Propriedade + Atribuição de valor.
-            ContaBancaria conta = new("Miss Cristine",saldoInicial); //Atribuindo valor a uma nova conta.
+            ContaBancaria conta = new("Miss Cristine", saldoInicial); //Atribuindo valor a uma nova conta.
 
             //Ação
-            Assert.ThrowsException<ArgumentOutOfRangeException>(()=>conta.Debitar(montanteDebitado));
-                //ThrowsException se refere ao tipo de excessão que será puxado.
-
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => conta.Debitar(montanteDebitado));
+            //ThrowsException se refere ao tipo de excessão que será puxado.
         }
+
+        //Classe de Teste para Creditar
+            //Deu errado :( em correção
+        [TestMethod]
+        public void Credito_QuantoMontanteMenorQueZero_InterceptadoPorExcecao()
+        {
+            double saldoInicial = 100.00; //Propriedade + Atribuição de valor.
+            double montanteCreditado = 20.00; //Propriedade + Atribuição de valor.
+            ContaBancaria conta = new("Miss Cristine", saldoInicial); //Atribuindo valor a uma nova conta.
+
+            //Ação
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => conta.Creditar(montanteCreditado));
+            //ThrowsException se refere ao tipo de excessão que será puxado.
+        }
+
+        //Criar um método que teste a lógica do montante maior que o saldo (debitar).
     }
 }
